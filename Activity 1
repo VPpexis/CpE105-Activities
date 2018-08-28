@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.Scanner;
+import java.util.stream.*;
+
+class Temp {
+  public static void main(String[] args) {
+    
+  int set;
+  int[] input;
+	Scanner reader = new Scanner(System.in);
+	
+  try {
+	  System.out.println("How much numbers do you want to input?");
+	  set = reader.nextInt();
+	  input = new int[set];
+     
+    for (int i = 0; i < set; i++) {
+		  System.out.println("Input numbers: ");
+		  input[i] = reader.nextInt();
+	  }
+		
+    int sum = IntStream.of(input).sum();
+    System.out.println();
+	  System.out.println("These are the following numbers: " + Arrays.toString(input));
+    System.out.println("The sum of all numbers is: " + sum);
+  }
+  catch (InputMismatchException e){
+    System.out.println("You have typed a invalid Character. Program Shuting Down. Pls Try again");
+  }
+	
+    
+  }
+}
