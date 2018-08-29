@@ -1,0 +1,9 @@
+count = 0
+sum = 0
+set = int(input("How many numbers you want to input?"))
+
+for x in range(0, set);
+  count = count + 1
+  sum += int(input("Input the number: "))
+  
+print("The total number is: " + str(sum))
