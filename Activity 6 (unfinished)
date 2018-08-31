@@ -1,0 +1,14 @@
+Area_code = "" """ Three digitis """
+Phone_number = "" """Seven Digits """
+Text_message = ""
+Tot_Tax = 12
+
+Area_code = input("What is your Area Code?: ")
+Phone_number = input("What is your Phone number?: ")
+Text_message = input("What is your text message?: ")
+
+if(len(Area_code) == 3 and len(Phone_number) == 7):
+  
+
+else:
+  Print("You have entered a wrong Area Code or a Phone Number")
