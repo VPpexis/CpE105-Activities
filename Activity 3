@@ -1,0 +1,16 @@
+# your code goes here
+ID_Number = int(input('What is the ID Number: '))
+Item_Des = input('What is the Item Description: ')
+Leng_Auc = int(input('What is the length of auctions (days): '))
+Min_Bid = int(input('What is the Minimum Required Bid: '))
+
+if Min_Bid > 100:
+  print()
+  print('ID Number: ' + str(ID_Number))
+  print('Item Description: ' + str(Item_Des))
+  print('Length of Auctions(Days): ' + str(Leng_Auc))
+  print('Minimum Required Bid: ' + str(Min_Bid))
+else:
+  print('You did not meet the Min. Bid')
+
+
