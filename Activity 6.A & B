@@ -15,7 +15,7 @@ while (Decision == 'Y'):
   print("Message Sent")
   Array_counter += 1
 
-  if(len(Area_code[Array_counter - 1]) != 3 and len(Phone_number[Array_counter - 1]) != 7):
+  if(len(Area_code[Array_counter - 1]) == 3 and len(Phone_number[Array_counter - 1]) == 7):
     Decision = input("Do you want to enter another text message?[y/n]")
     Text_Counter += 1
     
@@ -25,6 +25,14 @@ while (Decision == 'Y'):
     Decision = 'Y'
     Array_counter -= 1
   
+""" def Data_Analyzer():
+  Data_Keep = []
+  x = 0
+
+  while (Phone_number(x) != Data_Keep(x)):
+    Data_Keep.append()
+  else:
+    x += 1 """
 
 def Bill():
   Charge = 0
