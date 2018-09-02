@@ -1,0 +1,69 @@
+Area_code = []    #Three digitis
+Phone_number = [] #Seven Digits
+Text_message = []
+Tot_Tax = 12
+Basic_Rate = 5
+Text_Counter = 0
+Decision = 'Y'
+Add_Charge_Count = 0
+Array_counter = 0
+
+while (Decision == 'Y'):
+  Area_code.append(input("What is your Area Code?: "))
+  Phone_number.append(input("What is your Phone number?: "))
+  Text_message.append(input("What is your text message?: "))
+  print("Message Sent")
+  Array_counter += 1
+
+  if(len(Area_code[Array_counter - 1]) != 3 and len(Phone_number[Array_counter - 1]) != 7):
+    Decision = input("Do you want to enter another text message?[y/n]")
+    Text_Counter += 1
+    
+  else:
+    print("You have entered a wrong Area Code or Phone Number")
+    print("Pls Enter Again.")
+    Decision = 'Y'
+    Array_counter -= 1
+  
+
+def Bill():
+  Charge = 0
+  counter = 0
+
+  if (Text_Counter <= 60):
+    Charge = Basic_Rate
+
+  elif (Text_Counter > 60 and Text_Counter < 180):
+    Add_Charge_Count = Text_Counter - 59
+    Charge = Basic_Rate
+
+    for x in range(0,Add_Charge_Count):
+      Charge += 0.05
+    
+  else:
+    Add_Charge_Count = Text_Counter - 179
+    Charge = Basic_Rate
+
+    for x in range(0, Add_Charge_Count):
+      Charge += 0.10
+      counter += 1
+
+  print()
+  print("Your Bill")
+  print(" Total Bill w/o Tax: $" + str(Charge))
+  Charge = (Charge*.12) + Charge
+  print(" Total Bil w/ Tax: $" + str(Charge))
+  return;
+
+for x in range(0, Array_counter):
+    print()
+    print("Histody data: " + str(x + 1) + " of " + str(Array_counter))
+    print(" Area Code: " + Area_code[x])
+    print(" Phone Number: " + Phone_number[x])
+    print(" Text Message: " + Text_message[x])
+Bill()
+
+
+
+""" Text_Counter = int(input("Counter Number"))
+Bill() """
