@@ -1,0 +1,25 @@
+ID_Number = []
+Item_Des = []
+Leng_Auc = []
+Min_Bid = []
+counter = 0
+Choice = "Y"
+x = 0
+
+while (Choice == "Y"):
+  counter += 1
+  ID_Number.append(int(input('What is the ID Number: ')))
+  Item_Des.append(input('What is the Item Description: '))
+  Leng_Auc.append(int(input('What is the length of auctions (days): ')))
+  Min_Bid.append(int(input('What is the Minimum Required Bid: ')))
+  Choice = str(input("Do you want to Input Another Item?[Y/N]"))
+
+while (x != counter):
+  if (Leng_Auc[x] >= 7 and Leng_Auc[x] <= 30):
+    print()
+    print("ID Number: " + str(ID_Number[x]))
+    print("Item Description:" + str(Item_Des[x]))
+    print("Length of auctions (days): " + str(Leng_Auc[x]))
+    print("Minimum Required Bid: $" + str(Min_Bid[x]))
+    
+  x += 1 
