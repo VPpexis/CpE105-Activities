@@ -23,10 +23,14 @@ def Bill():
       Charge += 0.1
 
   print()
-  print("Total Bill:")
-  print(" Bill w/o tax: $" + str(Charge))
+  print("User's Data")
+  print(" Area Code: " + str(Area_Code))
+  print(" Phone Number: " + str(Phone_Number))
+  print(" Amount of Message Sent: " + str(Amt_Msg))
+  print(" Total Bill:")
+  print("   Bill w/o tax: $" + str(Charge))
   Charge = (Charge * .12) + Charge
-  print(" Bill w/ tax: $" + str(Charge))
+  print("   Bill w/ tax: $" + str(Charge))
 
 while (Decision == 'Y' or Decision == 'y'):
   Area_code = input("Enter Area Code?: ")
