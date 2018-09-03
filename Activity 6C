@@ -1,0 +1,54 @@
+import math
+Area_Code = [] #
+Phone_Number = []
+Amt_Msg = []
+Decision = 'Y'
+counter = 0
+
+def Bill(count):
+  Charge = 0
+  Extra_Charge = 0
+  Basic_Rate = 5
+
+  if (Amt_Msg[count] <= 60):
+    Charge = Basic_Rate
+  elif (Amt_Msg[count] > 60 and Amt_Msg[count] <= 180):
+    Charge = Basic_Rate
+    Extra_Charge = Amt_Msg[count] - 60
+    for x in range(0, Extra_Charge):
+      Charge += 0.05
+  else:
+    Charge = Basic_Rate
+    Extra_Charge = Amt_Msg[count] - 180
+    for x in range(0, Extra_Charge):
+      Charge += 0.1
+
+  print()
+  print("User's Data")
+  print(" Area Code: " + str(Area_Code[count]))
+  print(" Phone Number: " + str(Phone_Number[count]))
+  print(" Amount of Message Sent: " + str(Amt_Msg[count]))
+  print(" Total Bill:")
+  print("   Bill w/o tax: $" + str(Charge))
+  Charge = (Charge * .12) + Charge
+  print("   Bill w/ tax: $" + str(Charge))
+  return
+
+while (Decision == 'Y' or Decision == 'y'):
+  Area_Code.append(input("Enter Area Code?: "))
+  Phone_Number.append(input("Enter Phone Number?: "))
+  Amt_Msg.append(int(input("Amount of Text Message Sent?: ")))
+  if(len(Area_Code[counter]) == 3 and len(Phone_Number[counter]) == 7):
+    counter += 1
+    Decision = input("Do you want to enter another data? [Y/N]: ")
+  else:
+    print("You have entered a wrong Area Code or Phone Number")
+    print("Pls Enter Again.")
+    Area_Code.pop(counter)
+    Phone_Number.pop(counter)
+    Amt_Msg.pop(counter)
+    Decision = 'Y'
+    
+for x in range(0, counter):
+  if (Amt_Msg[x] > 100):
+    Bill(x)
