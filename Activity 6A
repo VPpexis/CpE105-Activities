@@ -1,0 +1,41 @@
+import math
+Area_Code = "" #
+Phone_Number = ""
+Amt_Msg = 0
+Decision = 'Y'
+
+def Bill():
+  Charge = 0
+  Extra_Charge = 0
+  Basic_Rate = 5
+
+  if (Amt_Msg <= 60):
+    Charge = Basic_Rate
+  elif (Amt_Msg > 60 and Amt_Msg <= 180):
+    Charge = Basic_Rate
+    Extra_Charge = Amt_Msg - 60
+    for x in range(0, Extra_Charge):
+      Charge += 0.05
+  else:
+    Charge = Basic_Rate
+    Extra_Charge = Amt_Msg - 180
+    for x in range(0, Extra_Charge):
+      Charge += 0.1
+
+  print()
+  print("Total Bill:")
+  print(" Bill w/o tax: $" + str(Charge))
+  Charge = (Charge * .12) + Charge
+  print(" Bill w/ tax: $" + str(Charge))
+
+while (Decision == 'Y' or Decision == 'y'):
+  Area_code = input("Enter Area Code?: ")
+  Phone_number = input("Enter Phone Number?: ")
+  Amt_Msg = int(input("Amount of Text Message Sent?: "))
+  if(len(Area_code) == 3 and len(Phone_number) == 7):
+    Bill()
+    break 
+  else:
+    print("You have entered a wrong Area Code or Phone Number")
+    print("Pls Enter Again.")
+    Decision = 'Y'
