@@ -5,27 +5,29 @@ Amt_Msg = []
 Decision = 'Y'
 counter = 0
 
-def Bill(x):
+def Bill(count):
   Charge = 0
   Extra_Charge = 0
   Basic_Rate = 5
-  if (Amt_Msg[x] <= 60):
+
+  if (Amt_Msg[count] <= 60):
     Charge = Basic_Rate
-  elif (Amt_Msg[x] > 60 and Amt_Msg[x] <= 180):
+  elif (Amt_Msg[count] > 60 and Amt_Msg[count] <= 180):
     Charge = Basic_Rate
-    Extra_Charge = Amt_Msg - 60
+    Extra_Charge = Amt_Msg[count] - 60
     for x in range(0, Extra_Charge):
       Charge += 0.05
   else:
     Charge = Basic_Rate
-    Extra_Charge = Amt_Msg - 180
+    Extra_Charge = Amt_Msg[count] - 180
     for x in range(0, Extra_Charge):
       Charge += 0.1
+
   print()
   print("User's Data")
-  print(" Area Code: " + str(Area_Code[x]))
-  print(" Phone Number: " + str(Phone_Number[x]))
-  print(" Amount of Message Sent: " + str(Amt_Msg[x]))
+  print(" Area Code: " + str(Area_Code[count]))
+  print(" Phone Number: " + str(Phone_Number[count]))
+  print(" Amount of Message Sent: " + str(Amt_Msg[count]))
   print(" Total Bill:")
   print("   Bill w/o tax: $" + str(Charge))
   Charge = (Charge * .12) + Charge
@@ -42,8 +44,11 @@ while (Decision == 'Y' or Decision == 'y'):
   else:
     print("You have entered a wrong Area Code or Phone Number")
     print("Pls Enter Again.")
+    Area_Code.pop(counter)
+    Phone_Number.pop(counter)
+    Amt_Msg.pop(counter)
     Decision = 'Y'
-    counter -= 1
+    
 
 for x in range(0, counter):
   Bill(x)
