@@ -1,0 +1,39 @@
+#include <iostream>
+#include <stdio.h>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    std::string name;
+    std::string address;
+    float payrate;
+    int x = 0;
+    std:string space(" ");
+    char str[50];
+
+    std::ifstream employeeData;
+    employeeData.open("/home/van/CpE102L/Chap07/Chap07/EmployeeData.dat");
+
+    //std::cout << employeeData.is_open();
+
+    printf("Name\t\tAddress\t\tPayrate\n");
+    printf("==============================\n");
+
+    while(!employeeData.eof()){
+
+        employeeData.getline(str, 50, ';');
+        employeeData.ignore(50, '\n');
+        name = str;
+
+
+        printf("%s", name.c_str());
+        printf("%20s\n", address.c_str());
+    }
+
+
+
+    return 0;
+}
